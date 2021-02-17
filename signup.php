@@ -4,7 +4,7 @@
     <div class="wrapper">
         <section>
             <h1>Sign up</h1>
-            <form action="signup.inc.php" method="post">
+            <form action="includes/signup.inc.php" method="post">
                 <input type="text" name="name" placeholder="Nombre completo...">
                 <input type="text" name="email" placeholder="Email...">
                 <input type="text" name="username" placeholder="Nombre de usuario...">
