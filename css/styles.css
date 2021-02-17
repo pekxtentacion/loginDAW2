@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    background-color: antiquewhite;
+}
+
+nav > ul {
+    display: flex;
+    list-style-type: none;
+    flex: auto;
+    justify-content: flex-end;
+    margin-right: 2em;
+}
+
+nav > ul > li {
+    margin-left: 2em;
+    
+}
+
+nav > ul > li > a {
+    text-decoration: none;
+}
+
+.aHeader {
+    text-decoration: none;
+    flex: auto;
+    align-self: center;
+    margin-left: 3em;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+section {
+    width: 35%;
+}
+
+form > input {
+    width: 100%;
+    margin: auto;
+    border-radius: 4px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    padding: 12px 20px;
+}
+
+form > button {
+    padding: 6px 10px;
+}
