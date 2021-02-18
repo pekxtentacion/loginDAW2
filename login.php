@@ -9,6 +9,17 @@
                 <input type="password" name="pass" placeholder="Contraseña...">
                 <button type="submit" name="submit">Login</button>
             </form>
+        <?php
+            if(isset($_GET["error"])){
+                $error = $_GET["error"];
+                if($error === "wronglogin"){
+                    echo "<p>Usuario o contraseña incorrectos</p>";
+                }
+                if($error === "empty"){
+                    echo "<p>Completa todos los campos.</p>";
+                }
+            }
+        ?>
         </section>
     </div>
 <?php

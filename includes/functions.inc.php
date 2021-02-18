@@ -7,6 +7,13 @@ function emptyInputsSignUp($name, $email, $uid, $pass, $passRepeat){
     return false;
 }
 
+function emptyInputsLogin($uid, $pass){
+    if(empty($uid) || empty($pass)){
+        return true;
+    }
+    return false;
+}
+
 function invalidUid($uid){
     if(preg_match("/^[a-zA-Z0-9]*$/", $uid)){
         return false;
@@ -65,4 +72,28 @@ function createUser($conn, $name, $email, $uid, $pass){
     header("location: ../signup.php?error=none");
     exit();    
 
+}
+
+function loginUser($conn, $uid, $pass){
+    $uidExists = uidExists($conn, $uid, $uid);
+
+    if(!$uidExists){
+        header("location: ../login.php?error=wronglogin");
+        exit();   
+    }
+
+    $passHashed = $uidExists["userPwd"];
+    $checkPwd = password_verify($pass, $passHashed);
+
+    if(!$checkPwd){
+        header("location: ../login.php?error=wronglogin");
+        exit();   
+    }
+
+    session_start();
+    $_SESSION["userId"] = $uidExists["usersId"];
+    $_SESSION["userUid"] = $uidExists["userUid"];
+    $_SESSION["userName"] = $uidExists["userName"];
+    header("location: ../profile.php");
+    exit();   
 }
